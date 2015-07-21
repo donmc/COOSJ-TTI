@@ -6,11 +6,12 @@ public class Die {
 	private int numberOfSides;
 	
 	public Die() {
-		this.numberOfSides = 6;
+		this(6);
 	}
 	
 	public Die(int numberOfSides) {
 		this.numberOfSides = numberOfSides;
+		this.faceValue = 1;
 	}
 	
 	
