@@ -11,7 +11,7 @@ public class DieTest {
 		Die testDie = new Die();
 		assertNotEquals(0, testDie.getFaceValue());
 	}
-	
+	 
 	@Test
 	public void testRoll_MoreThan0() {
 		// setup

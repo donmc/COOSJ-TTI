@@ -6,7 +6,7 @@ public class Die {
 	private int numberOfSides;
 	
 	public Die() {
-		this(6);
+		this(6);  
 	}
 	
 	public Die(int numberOfSides) {
@@ -18,7 +18,7 @@ public class Die {
 	public void roll() {
 		faceValue = (int)(Math.random() * numberOfSides) + 1;
 	}
-
+ 
 	public int getFaceValue() {
 		return faceValue;
 	}
