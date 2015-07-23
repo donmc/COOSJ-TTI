@@ -2,34 +2,67 @@ package com.improving.monopoly;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.junit.Test;
 
 public class WhenSettingUpGame {
 
+	
+	@Test
+	public void shouldHaveMoreThanOnePlayer() {
+		
+		try {
+			Game game = new Game(1);
+			fail("Should have thrown an exception!");
+			
+		}catch(IllegalArgumentException e) {
+			assertEquals("Not enough Players!", e.getMessage());
+		}catch(Exception e) {
+			fail("WRONG EXCEPTION!");
+		}
+	}
+
+	
+	@Test
+	public void shouldHaveLessThanNinePlayers() {
+		
+		try {
+			Game game = new Game(9);
+			fail("Should have thrown an exception!");
+			
+		}catch(IllegalArgumentException e) {
+			assertEquals("Too many Players!", e.getMessage());
+		}catch(Exception e) {
+			fail("WRONG EXCEPTION!");
+		}
+	}
+	
 	@Test
 	public void shouldHave40Squares() {
 		Game game = new Game();
 		
-		Square[] squares = game.getSquares();
+		//Square[] squares = game.getSquares();
+		List<Square> squares = game.getSquares();
 		
-		assertEquals(40, squares.length);
+		assertEquals(40, squares.size());
 		
 	}
 	
 	@Test
 	public void shouldHaveCorrectNameOnSquares() {
 		Game game = new Game();
-		
-		Square[] squares = game.getSquares();
 
-		assertEquals("Go", squares[0].getName());
-		assertEquals("Square 1", squares[1].getName());
-		assertEquals("Square 2", squares[2].getName());
-		assertEquals("Square 3", squares[3].getName());
-		assertEquals("Square 4", squares[4].getName());
-		assertEquals("Square 5", squares[5].getName());
-		assertEquals("Square 6", squares[6].getName());
-		assertEquals("Square 39", squares[39].getName());
+		List<Square> squares = game.getSquares();
+
+		assertEquals("Go", squares.get(0).getName());
+		assertEquals("Square 1", squares.get(1).getName());
+		assertEquals("Square 2", squares.get(2).getName());
+		assertEquals("Square 3", squares.get(3).getName());
+		assertEquals("Square 4", squares.get(4).getName());
+		assertEquals("Square 5", squares.get(5).getName());
+		assertEquals("Square 6", squares.get(6).getName());
+		assertEquals("Square 39", squares.get(39).getName());
 	}
 	
 	@Test
@@ -78,10 +111,12 @@ public class WhenSettingUpGame {
 	public void shouldStartAllPlayersOnGo() {
 		Game game = new Game();
 		Player[] players = game.getPlayers();
-		Square[] squares = game.getSquares();
+		List<Square> squares = game.getSquares();
 
-		assertEquals(squares[0], players[0].getLocation());
-		assertEquals(squares[0], players[1].getLocation());
+		Square startSquare = squares.get(0);
+		
+		assertEquals(startSquare, players[0].getLocation());
+		assertEquals(startSquare, players[1].getLocation());
 		
 	}
 
