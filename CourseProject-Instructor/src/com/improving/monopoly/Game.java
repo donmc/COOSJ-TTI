@@ -61,7 +61,12 @@ public class Game {
 				//squares[i] = new Square("Go");
 				squares.add(new GoSquare());
 				break;
-
+			case 4:
+				squares.add(new IncomeTaxSquare());
+				break;
+			case 38:
+				squares.add(new LuxuryTaxSquare());
+				break;
 			default:
 				//squares[i] = new Square("Square " + i);
 				squares.add(new Square("Square " + i));
@@ -84,7 +89,7 @@ public class Game {
 		return squares;
 	}
 
-	public Player[] getPlayers() {
+	public IPlayer[] getPlayers() {
 		return players;
 	}
 

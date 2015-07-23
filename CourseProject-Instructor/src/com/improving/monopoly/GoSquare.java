@@ -6,8 +6,13 @@ public class GoSquare extends Square {
 		super("Go");
 	}
 	
-	@Override
+	@Override 
 	public void landOnBy(Player player) {
+		
+	}
+	
+	@Override
+	public void passOverBy(Player player) {
 		player.credit(200);
 	}
 }

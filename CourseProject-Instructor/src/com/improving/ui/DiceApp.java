@@ -1,21 +1,39 @@
 package com.improving.ui;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import com.improving.dice.Die;
 
 public class DiceApp {
 
 	public static void main(String[] args) {
-		Die die1 = new Die(20);
+		Die die1 = new Die();
 		Die die2 = new Die();
+		Die die3 = new Die();
+		Die die4 = new Die();
 		
-		die1.roll();
-		die2.roll();
-		
-		int value1 = die1.getFaceValue();
-		int value2 = die2.getFaceValue();
 
-		System.out.println("Die 1 roll: " + value1);
-		System.out.println("Die 2 roll: " + value2);
+		
+		List<Die> dice = new ArrayList<>();
+		dice.add(die1);
+		dice.add(die2);
+		dice.add(die3);
+		dice.add(die4);
+		
+		for (Die die : dice) {
+			die.roll();
+			System.out.println(die.getFaceValue());
+		}
+		
+
+		Collections.sort(dice);
+		
+		for (Die die : dice) {
+			System.out.println(die.getFaceValue());
+		}
 	}
 
 }

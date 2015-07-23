@@ -69,7 +69,7 @@ public class WhenSettingUpGame {
 	public void shouldDefaultTo2Players() {
 		Game game = new Game();
 		
-		Player[] players = game.getPlayers();
+		IPlayer[] players = game.getPlayers();
 		
 		assertEquals(2, players.length);
 	}
@@ -78,7 +78,7 @@ public class WhenSettingUpGame {
 	public void shouldAllowMorePlayers() {
 		Game game = new Game(8);
 		
-		Player[] players = game.getPlayers();
+		IPlayer[] players = game.getPlayers();
 		
 		assertEquals(8, players.length);
 	}
@@ -86,7 +86,7 @@ public class WhenSettingUpGame {
 	@Test
 	public void shouldSetTokensForPlayers() {
 		Game game = new Game(8);
-		Player[] players = game.getPlayers();
+		IPlayer[] players = game.getPlayers();
 
 		assertEquals(Token.Thimble, players[0].getToken());
 		assertEquals(Token.Shoe, players[1].getToken());
@@ -101,7 +101,7 @@ public class WhenSettingUpGame {
 	@Test
 	public void shouldStartEachPlayerWith$1500() {
 		Game game = new Game();
-		Player[] players = game.getPlayers();
+		IPlayer[] players = game.getPlayers();
 		
 		assertEquals(1500, players[0].getMoney());
 		assertEquals(1500, players[1].getMoney());
@@ -110,7 +110,7 @@ public class WhenSettingUpGame {
 	@Test
 	public void shouldStartAllPlayersOnGo() {
 		Game game = new Game();
-		Player[] players = game.getPlayers();
+		IPlayer[] players = game.getPlayers();
 		List<Square> squares = game.getSquares();
 
 		Square startSquare = squares.get(0);
