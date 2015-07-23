@@ -1,14 +1,34 @@
 package com.improving.monopoly;
 
+import com.improving.dice.Die;
+
 public class Game {
 	
 	private Square[] squares;
 	private Player[] players;
+	private Die die1;
+	private Die die2;
 	
 	public Game(int numberOfPlayers) {
-		squares = new Square[40];
-		players = new Player[numberOfPlayers];
+		buildDice();
+		buildSquares();
+		buildPlayers(numberOfPlayers);
+	}
 
+	private void buildDice() {
+		die1 = new Die();
+		die2 = new Die();
+	}
+
+	private void buildPlayers(int numberOfPlayers) {
+		players = new Player[numberOfPlayers];
+		for (int i = 0; i < players.length; i++) {
+			players[i] = new Player(Token.values()[i], 1500, squares[0]);
+		}
+	}
+
+	private void buildSquares() {
+		squares = new Square[40];
 		for (int i = 0; i < squares.length; i++) {
 			
 			switch (i) {
@@ -20,10 +40,6 @@ public class Game {
 				squares[i] = new Square("Square " + i);
 				break;
 			}
-		}
-		 
-		for (int i = 0; i < players.length; i++) {
-			players[i] = new Player(Token.values()[i]);
 		}
 	}
 	

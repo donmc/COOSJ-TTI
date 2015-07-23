@@ -64,6 +64,26 @@ public class WhenSettingUpGame {
 		assertEquals(Token.Dog, players[6].getToken());
 		assertEquals(Token.Wheelbarrow, players[7].getToken());
 	}
+	
+	@Test
+	public void shouldStartEachPlayerWith$1500() {
+		Game game = new Game();
+		Player[] players = game.getPlayers();
+		
+		assertEquals(1500, players[0].getMoney());
+		assertEquals(1500, players[1].getMoney());
+	}
+	
+	@Test
+	public void shouldStartAllPlayersOnGo() {
+		Game game = new Game();
+		Player[] players = game.getPlayers();
+		Square[] squares = game.getSquares();
+
+		assertEquals(squares[0], players[0].getLocation());
+		assertEquals(squares[0], players[1].getLocation());
+		
+	}
 
 }
 
